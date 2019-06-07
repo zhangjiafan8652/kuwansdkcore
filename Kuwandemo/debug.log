@@ -1,0 +1,4 @@
+[0825/153435:ERROR:block_files.cc(477)] Failed to open C:\Users\Administrator\AppData\Local\Youdao\YNote\data_0
+[0825/153435:ERROR:cache_util_win.cc(20)] Unable to move the cache: 5
+[0825/153435:ERROR:cache_util.cc(132)] Unable to move cache folder C:\Users\Administrator\AppData\Local\Youdao\YNote to C:\Users\Administrator\AppData\Local\Youdao\old_YNote_000
+[0825/153435:ERROR:cache_creator.cc(127)] Unable to create cache
