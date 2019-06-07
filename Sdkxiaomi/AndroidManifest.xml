@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.yayawan.sdktemplate"
+    android:versionCode="2"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="19" />
+
+ <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.xiaomi.sdk.permission.PAYMENT" />
+    <uses-permission android:name="com.xiaomi.permission.AUTH_SERVICE" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <!--定位权限-->
+    <!-- 这个权限用于进行网络定位-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <!-- 这个权限用于访问GPS定位-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+    <!--获取Mac地址的时候用到-->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+
+    <application
+        android:name="com.yayawan.impl.YYApplication"
+        android:allowBackup="true"
+        android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        <activity
+            android:name="com.yayawan.sdktemplate.MainActivity"
+            android:label="app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+          <meta-data
+            android:name="qianqi_app_id"
+            android:value="kk3112196201" /> 
+           
+ 		
+          
+           <!-- Xiaomi SDK Need -->
+        <meta-data
+            android:name="notch.config"
+            android:value="portrait|landscape"/>
+      
+        <meta-data
+            android:name="MiLinkGroupAppID"
+            android:value="2000202"/>
+        <activity
+            android:name="com.xiaomi.gamecenter.sdk.ui.MiActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.xiaomi.gamecenter.sdk.ui.PayListActivity"
+            android:configChanges="orientation|screenSize"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.xiaomi.hy.dj.HyDjActivity"
+            android:configChanges="orientation|screenSize"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+        <!--不支持${applicationId}的请替换为包名-->
+        <service
+            android:name="com.xiaomi.gamecenter.push.GamePushService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.yayawan.sdktemplate.MI_GAME_PUSH"/>
+            </intent-filter>
+        </service>
+
+        <receiver android:name="com.xiaomi.gamecenter.push.OnClickReceiver"
+                  android:exported="true">
+            <intent-filter>
+                <action android:name="com.xiaomi.hy.push.client.ONCLICK"/>
+            </intent-filter>
+        </receiver>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="string_package.fileprovider"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+        <!-- Xiaomi SDK Need End-->
+       
+        
+        <activity android:configChanges="keyboardHidden|navigation|orientation|screenSize" android:name="com.yayawan.sdk.jflogin.BaseLogin_Activity" android:theme="@android:style/Theme.Dialog"/>
+        <activity android:configChanges="keyboardHidden|navigation|orientation|screenSize" android:name="com.yayawan.sdk.Yinlian_Activity"/>
+        <meta-data android:name="AppId" android:value="string2882303761517795987"/>
+        <meta-data android:name="AppKey" android:value="string5581779517987"/>
+        <meta-data android:name="addexit" android:value="yes"/>
+       
+        <meta-data android:name="isLandscape" android:value="true"/>
+        <meta-data android:name="isdebug" android:value="false"/>
+        <meta-data android:name="yayawan_orientation" android:value="landscape"/>
+        <meta-data android:name="isxiaomi" android:value="true"/>
+        <meta-data android:name="gamename" android:value="西游风云"/>
+        <meta-data android:name="moneyname" android:value="元宝"/>
+        <activity  android:configChanges="keyboardHidden|navigation|orientation|screenSize" android:name="com.yayawan.impl.XiaoMipayActivity" android:theme="@style/dialogstyle"/>
+      <activity
+            android:name="com.yayawan.sdk.pay.XiaoMipayActivity"
+            android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+           
+            android:theme="@style/dialogstyle" >
+        </activity>
+    </application>
+
+</manifest>
