@@ -420,6 +420,7 @@ public class CommonGameProxy implements YYWGameProxy {
 	@Override
 	public void onCreate(final Activity paramActivity) {
 		// 进行检查更新
+		
 		YYcontants.ISDEBUG=DeviceUtil.isDebug(paramActivity);
 	
 		

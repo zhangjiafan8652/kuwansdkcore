@@ -139,7 +139,7 @@ public class Yayapaymain_jf extends BaseView {
 		}
 		
 		
-		//如果是 千果sdk  隐藏 代金券和Y币支付
+		//如果是 sdk  隐藏 代金券和Y币支付
 		
 				if (CommonData.sdkid.contains("qianqi")) {
 					

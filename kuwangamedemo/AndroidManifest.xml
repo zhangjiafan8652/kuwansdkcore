@@ -7,7 +7,7 @@
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="23" />
-    <!-- 丫丫玩sdk 必须权限 -->
+    <!-- sdk 必须权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -39,7 +39,7 @@
         android:targetPackage="com.example.kkgamedemo"
         android:label="label" />
     <application
-        android:name="com.yayawan.impl.YYApplication"
+        android:name="com.kuwan.impl.YYApplication"
         android:allowBackup="true"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
@@ -61,14 +61,14 @@
         
           <!-- BaseLogin_Activity 登录 -->
         <activity
-            android:name="com.kkgame.sdk.login.BaseLogin_Activity"
+            android:name="com.kuwan.sdk.login.BaseLogin_Activity"
             android:configChanges="keyboardHidden|navigation|orientation|screenSize"
             android:theme="@android:style/Theme.Dialog" 
             >
           
        </activity>
         <activity
-            android:name="com.kkgame.sdk.login.SmallHelpActivity"
+            android:name="com.kuwan.sdk.login.SmallHelpActivity"
           	android:configChanges="keyboardHidden|navigation|orientation|screenSize"
           	android:theme="@android:style/Theme.Translucent" 
            >
@@ -79,14 +79,14 @@
             android:name="yayawan_nochangecount"
             android:value="false" />
        <activity
-            android:name="com.kkgame.sdk.login.AssistantActivity"
+            android:name="com.kuwan.sdk.login.AssistantActivity"
             android:configChanges="keyboardHidden|navigation|orientation|screenSize"
              >
         </activity>
      
         
         <activity
-            android:name="com.kkgame.sdk.pay.XiaoMipayActivity"
+            android:name="com.kuwan.sdk.pay.XiaoMipayActivity"
             android:configChanges="keyboardHidden|navigation|orientation|screenSize"
             android:theme="@style/dialogstyle" >
         </activity>
@@ -106,33 +106,13 @@
             android:name="isLandscape"
             android:value="true" />
 
-        <!-- 腾讯广点通上报方案 -->
-      
-        <meta-data
-            android:name="guangdiantong"
-            android:value="no" />
-        
-        
-          <meta-data
-            android:name="app_id"
-            android:value="kk1531772467" /> 
+
           
         <meta-data
-            android:name="qianqi_app_id"
-            android:value="kk1129901475" /> 
-       
-             
-      
-        <meta-data
-            android:name="banhaoxinxi"
-            android:value="出版社：发动机是垃圾费多了时间了解放东路卡机发了多少" />
-        <meta-data
-            android:name="isxiaomi"
-            android:value="false" />
+            android:name="kuwan_app_id"
+            android:value="kk3724021868" /> 
+
         
-       <meta-data
-            android:name="zoneid"
-            android:value="string2" />  
       
           <meta-data
             android:name="sdktype"

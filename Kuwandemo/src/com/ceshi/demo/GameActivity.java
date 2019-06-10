@@ -12,14 +12,14 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.kuwan.callback.YYWAnimCallBack;
+import com.kuwan.callback.YYWExitCallback;
+import com.kuwan.callback.YYWPayCallBack;
+import com.kuwan.callback.YYWUserCallBack;
+import com.kuwan.domain.YYWOrder;
+import com.kuwan.domain.YYWUser;
+import com.kuwan.main.Kuwangame;
 import com.tencent.tmgp.yjxysml.R;
-import com.yayawan.callback.YYWAnimCallBack;
-import com.yayawan.callback.YYWExitCallback;
-import com.yayawan.callback.YYWPayCallBack;
-import com.yayawan.callback.YYWUserCallBack;
-import com.yayawan.domain.YYWOrder;
-import com.yayawan.domain.YYWUser;
-import com.yayawan.main.YaYaWan;
 
 /**
  * 
@@ -27,34 +27,34 @@ import com.yayawan.main.YaYaWan;
  * 1.sdk初始化方法。在主activity oncreate 最开始处调用
  * 
  * 
- * YaYaWan.getInstance().initSdk(mActivity);
+ * Kuwangame.getInstance().initSdk(mActivity);
  * 
  * 2.复写生命周期方法,里面调用
- * YaYaWan.getInstance().onCreate(this);
- * YaYaWan.getInstance().onRestart(this); YaYaWan.getInstance().onResume(this);
- * YaYaWan.getInstance().onPause(this); YaYaWan.getInstance().onStop(this);
- * YaYaWan.getInstance().onDestroy(this);
- * YaYaWan.getInstance().onActivityResult(this, requestCode, resultCode, data);
- * YaYaWan.getInstance().onNewIntent(intent);
- * YaYaWan.getInstance().onRequestPermissionsResult(int requestCode,
+ * Kuwangame.getInstance().onCreate(this);
+ * Kuwangame.getInstance().onRestart(this); Kuwangame.getInstance().onResume(this);
+ * Kuwangame.getInstance().onPause(this); Kuwangame.getInstance().onStop(this);
+ * Kuwangame.getInstance().onDestroy(this);
+ * Kuwangame.getInstance().onActivityResult(this, requestCode, resultCode, data);
+ * Kuwangame.getInstance().onNewIntent(intent);
+ * Kuwangame.getInstance().onRequestPermissionsResult(int requestCode,
 			String[] permissions, int[] grantResults)；
  * 
 
  * 
- * 3.登录接口. YaYaWan.getInstance().login(this, new YYWUserCallBack()} 如下面的例子:
+ * 3.登录接口. Kuwangame.getInstance().login(this, new YYWUserCallBack()} 如下面的例子:
  * 注意:登录有三个回调..第一个成功,第二个取消...注意第三个是登出..登出则是用户点击了sdk中的切换账号按钮,游戏应该注销账户 回到游戏的登录页面..
  * 
- * 4.设置角色数据YaYaWan.getInstance().setData(paramActivity, roleId, roleName, roleLevel, zoneId, zoneName, roleCTime, ext);
+ * 4.设置角色数据Kuwangame.getInstance().setData(paramActivity, roleId, roleName, roleLevel, zoneId, zoneName, roleCTime, ext);
 				// 参数介绍 角色id 角色name 等级 区服id 区服名字 角色创建时间 附加信息
  * 
- * 5.支付接口 YaYaWan.getInstance().pay(this, order, new YYWPayCallBack()) 看例子:
+ * 5.支付接口 Kuwangame.getInstance().pay(this, order, new YYWPayCallBack()) 看例子:
  * 
- * 6.退出接口 YaYaWan.getInstance().exit(this, new YYWExitCallback() )
+ * 6.退出接口 Kuwangame.getInstance().exit(this, new YYWExitCallback() )
  * 
  * 
  * 
  * 7.游戏内注销按钮...(可选)应用场景,游戏内有注销账号的按钮..点击按钮后游戏自己退出游戏，在退出之前调用这个接口（这个接口无任何现象，
- * 仅仅是将sdk内账号清空） YaYaWan.getInstance().logout(GameActivity.this);
+ * 仅仅是将sdk内账号清空） Kuwangame.getInstance().logout(GameActivity.this);
  * 
  * 
  * 8.复制拷贝androidmanifest文件配置
@@ -74,7 +74,7 @@ public class GameActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.demomain);
 		yaya_init();
-		YaYaWan.getInstance().onCreate(this);
+		Kuwangame.getInstance().onCreate(this);
 		
 		initView();
 		//anim();
@@ -128,7 +128,7 @@ public class GameActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				YaYaWan.getInstance().logout(GameActivity.this);
+				Kuwangame.getInstance().logout(GameActivity.this);
 				loginView();
 			}
 		});
@@ -169,7 +169,7 @@ public class GameActivity extends Activity {
 
 		
 		
-		YaYaWan.getInstance().anim(this, new YYWAnimCallBack() {
+		Kuwangame.getInstance().anim(this, new YYWAnimCallBack() {
 		    @Override
 		    public void onAnimSuccess(String arg0, Object arg1) {
 		        System.out.println("播放动画成功");
@@ -193,7 +193,7 @@ public class GameActivity extends Activity {
 	 */
 	public void login() {
 		System.out.println("登录");
-		YaYaWan.getInstance().login(this, new YYWUserCallBack() {
+		Kuwangame.getInstance().login(this, new YYWUserCallBack() {
 
 			@Override
 			public void onLogout(Object arg0) {
@@ -212,12 +212,12 @@ public class GameActivity extends Activity {
 
 				// 登录成功设置角色数据方法
 
-				// YaYaWan.getInstance().setData(paramActivity, roleId,
+				// Kuwangame.getInstance().setData(paramActivity, roleId,
 				// roleName, roleLevel, zoneId, zoneName, roleCTime, ext);
 				// 参数介绍 角色id 角色name 等级 区服id 区服名字 角色创建时间 附加信息
 				// 角色创建时间为秒 距离1970年的秒数，其中java可以用这个方法获取 long
 				// startPaintLogoTime=System.currentTimeMillis()/1000;
-				YaYaWan.getInstance().setData(GameActivity.this, user.uid,
+				Kuwangame.getInstance().setData(GameActivity.this, user.uid,
 						user.userName, "11", "1", "无尽之海",
 						"" + System.currentTimeMillis() / 1000, "1");
 				// 进入到游戏中
@@ -252,7 +252,7 @@ public class GameActivity extends Activity {
 		YYWOrder order = new YYWOrder(UUID.randomUUID().toString(), "霜之哀伤", 50l,
 				"");
 
-		YaYaWan.getInstance().pay(this, order, new YYWPayCallBack() {
+		Kuwangame.getInstance().pay(this, order, new YYWPayCallBack() {
 			@Override
 			public void onPaySuccess(YYWUser arg0, YYWOrder arg1, Object arg2) {
 				// TODO Auto-generated method stub
@@ -290,7 +290,7 @@ public class GameActivity extends Activity {
 	 */
 	public void exit() {
 		System.out.println("登录");
-		YaYaWan.getInstance().exit(this, new YYWExitCallback() {
+		Kuwangame.getInstance().exit(this, new YYWExitCallback() {
 
 			@Override
 			public void onExit() {
@@ -305,39 +305,39 @@ public class GameActivity extends Activity {
 	protected void onRestart() {
 		super.onRestart();
 		System.out.println("onrestart");
-		YaYaWan.getInstance().onRestart(this);
+		Kuwangame.getInstance().onRestart(this);
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
 		System.out.println("onresume");
-		YaYaWan.getInstance().onResume(this);
+		Kuwangame.getInstance().onResume(this);
 	}
 
 	@Override
 	protected void onPause() {
 		super.onPause();
-		YaYaWan.getInstance().onPause(this);
+		Kuwangame.getInstance().onPause(this);
 	}
 
 	@Override
 	protected void onStop() {
 		super.onStop();
-		YaYaWan.getInstance().onStop(this);
+		Kuwangame.getInstance().onStop(this);
 	}
 
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		YaYaWan.getInstance().onDestroy(this);
+		Kuwangame.getInstance().onDestroy(this);
 	}
 
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		// TODO Auto-generated method stub
 		super.onActivityResult(requestCode, resultCode, data);
-		YaYaWan.getInstance().onActivityResult(this, requestCode, resultCode,
+		Kuwangame.getInstance().onActivityResult(this, requestCode, resultCode,
 				data);
 
 	}
@@ -346,18 +346,18 @@ public class GameActivity extends Activity {
 	protected void onNewIntent(Intent intent) {
 		// TODO Auto-generated method stub
 		super.onNewIntent(intent);
-		YaYaWan.getInstance().onNewIntent(intent);
+		Kuwangame.getInstance().onNewIntent(intent);
 	}
 
 	public  void yaya_init() {
-		 YaYaWan.getInstance().initSdk(GameActivity.this);
+		 Kuwangame.getInstance().initSdk(GameActivity.this);
 	}
 	
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		// TODO Auto-generated method stub
 		
 		if(keyCode == KeyEvent.KEYCODE_BACK){
-			YaYaWan.getInstance().exit(GameActivity.this, new YYWExitCallback() {
+			Kuwangame.getInstance().exit(GameActivity.this, new YYWExitCallback() {
 
 				@Override
 				public void onExit() {

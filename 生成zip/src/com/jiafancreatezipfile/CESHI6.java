@@ -11,7 +11,7 @@ public class CESHI6 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//System.out.println(UUID.randomUUID().toString().length());
-		String pat="D:\\kuwanworkspace\\Kuwangamelib\\src";
+		String pat="D:\\kuwanworkspace\\Sdkoppowangyou";
 		//File file = new File("D:\\kuwanworkspace\\Kuwangamelib");
 		bianli(pat);
 	/*	String[] list = file.list();
@@ -52,10 +52,15 @@ public class CESHI6 {
 					bianli(path+file.separator+listFiles[i].getName());
 				}
 			}else {
-				String read = Filetextutils.read(listFiles[i].getAbsolutePath());
-				String temread=read.replace("yayawan", "kuwan");
-				String temread1=temread.replace("kkgame", "kuwan");
-				Filetextutils.write(listFiles[i].getAbsolutePath(), false, temread1);
+				if (listFiles[i].getName().contains(".jar")) {
+					
+				}else {
+					String read = Filetextutils.read(listFiles[i].getAbsolutePath());
+					String temread=read.replace("yayawan", "kuwan");
+					String temread1=temread.replace("kkgame", "kuwan");
+					Filetextutils.write(listFiles[i].getAbsolutePath(), false, temread1);
+				}
+				
 			}
 			
 		}

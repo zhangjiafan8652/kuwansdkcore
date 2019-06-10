@@ -35,7 +35,7 @@ public class ActivityStubImpl implements YYWActivityStub {
 	public void onCreate(Activity paramActivity) {
 		// TODO Auto-generated method stub
 		Yayalog.loger("oncreate");
-		KgameSdk.initSdk(paramActivity);
+		KgameSdk.initSdk(paramActivity);//激活
 		Handle.active_handler(paramActivity);
 	}
 

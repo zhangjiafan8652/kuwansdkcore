@@ -1,7 +1,8 @@
 package com.ceshi.demo;
 
-import com.yayawan.impl.YYApplication;
-import com.yayawan.main.YaYaWan;
+import com.kuwan.impl.YYApplication;
+
+
 
 public class GameApplication extends YYApplication{
 

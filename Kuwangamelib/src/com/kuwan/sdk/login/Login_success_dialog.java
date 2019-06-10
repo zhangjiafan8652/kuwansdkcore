@@ -192,7 +192,7 @@ public class Login_success_dialog extends Basedialogview {
 		
 		tv_message2 = new TextView(mActivity);
 		machineFactory.MachineTextView(tv_message2, WRAP_CONTENT, WRAP_CONTENT,
-				0, "不凡游戏账号  ", tv_textsize, mLinearLayout, 0, 10, 0, 0);
+				0, "游戏账号  ", tv_textsize, mLinearLayout, 0, 10, 0, 0);
 		tv_message2.setTextColor(Color.BLACK);
 		
 		tv_userid = new TextView(mActivity);

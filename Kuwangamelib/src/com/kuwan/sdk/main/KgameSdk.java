@@ -317,12 +317,9 @@ public class KgameSdk {
 	 */
 	public static void init(Activity activity) {
 
-		if (sdktype==1) {
-			
-		}else {
+	
 			LogoWindow.getInstants(activity).start();
 
-		}
 		
 	}
 
